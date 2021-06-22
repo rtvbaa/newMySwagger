@@ -44,7 +44,10 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Person"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Person"
+              }
             }
           }
         }
