@@ -5,7 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -13,11 +20,21 @@ import javax.validation.constraints.*;
  * Person
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-22T15:51:34.345334700+03:00[Europe/Minsk]")
+
+@Entity
 public class Person   {
   @JsonProperty("id")
+
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+
   private Integer id;
 
   @JsonProperty("name")
+
+  @Column(name = "name")
+
   private String name;
 
   public Person id(Integer id) {
