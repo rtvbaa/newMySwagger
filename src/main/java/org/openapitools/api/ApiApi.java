@@ -52,10 +52,9 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=UTF-8"))) {
-                    person.setId(1);
+                    person.setId(0);
                     person.setName(name);
-                    String exampleString = person.toString();
-                    ApiUtil.setExampleResponse(request, "application/json;charset=UTF-8", exampleString);
+                    ApiUtil.setExampleResponse(request, "application/json;charset=UTF-8", person);
                     break;
                 }
             }
@@ -82,8 +81,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=UTF-8"))) {
-                    String exampleString = person.toString();
-                    ApiUtil.setExampleResponse(request, "application/json;charset=UTF-8", exampleString);
+                    ApiUtil.setExampleResponse(request, "application/json;charset=UTF-8", person);
                     break;
                 }
             }
